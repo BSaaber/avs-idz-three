@@ -1,28 +1,38 @@
 #include <stdio.h>
 
 double foo(double a, double b, double x) {
-    return a + b * x;
+    return a + b * x * x * x;
 }
 
 
-// заметим, что потери при подсчётах: ( b * d * (right - left) ) / 2 | d - ширина прямоугольников
-// т. к. хотим отклонение не более 0.0001 составим неравенство на d
-// d < 0.00005 / (|b| * (right - left))
-// d := 0.000025 / (|b| * (right - left))
+// из графика функции видим, что самая большая погрешность будет у первого или последнего прямоугольника
+// принимаем таковой погрешность каждого прямоугольника
+// подбираем d
 
 // в вырожденном случае b = 0 погрешность появляется лишь из-за последнего неучтённого прямоугольника
 // исходя из нее вычисляем d
 
 // P. S. в первом случае ожидаем, что погрешность неучтённого прямоугольника будет малозначимой
 // по сравнению с погрешностью из-за приближения прямоугольниками
-double getD(double b, double right, double left) {
+double getD(double a, double b, double right, double left) {
     if (b < 0) {
         b = -b;
     }
     if (b == 0) {
         return (right - left) / (1 / 0.00005);
     }
-    return 0.000025 / (b * (right - left));
+    
+    double right_res = foo(a, b, right);
+    double len = right - left;
+    double d = 0.01;
+    while ((right_res - foo(a, b, right - d)) * len > 0.0001) {
+        d /= 2;
+    }
+    double left_res = foo(a, b, left);
+    while ((foo(a, b, left + d) - left_res) * len > 0.0001) {
+        d /= 2;
+    }
+    return d;
 }
 
 
@@ -45,7 +55,7 @@ int main()
         left = temp;
         minus = -1;
     }
-    double d = getD(b, right, left);
+    double d = getD(a, b, right, left);
     for (; left < right; left += d) {
         result += foo(a, b, left) * d;
     }
