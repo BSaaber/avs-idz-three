@@ -46,7 +46,7 @@ cba
 ```
 Ожидаемые выходные данные:
 ```
-a
+83.5134 +- 0.00005
 ```
 ![](/screenshots/test_two_main.png)
 ![](/screenshots/test_two_assembler.png)
@@ -58,7 +58,7 @@ a
 ```
 Ожидаемые выходные данные:
 ```
-543
+-371.25 +- 0.00005
 ```
 ![](/screenshots/test_three_main.png)
 ![](/screenshots/test_three_assembler.png)
@@ -70,7 +70,7 @@ a
 ```
 Ожидаемые выходные данные:
 ```
-543
+18 +- 0.00005
 ```
 ![](/screenshots/test_four_main.png)
 ![](/screenshots/test_four_assembler.png)
@@ -82,7 +82,7 @@ a
 ```
 Ожидаемые выходные данные:
 ```
-no such sequence
+0
 ```
 ![](/screenshots/test_five_main.png)
 ![](/screenshots/test_five_assembler.png)
