@@ -66,11 +66,11 @@
 Входные данные:
 ```
 2 0
--4 5
+-3 4
 ```
 Ожидаемые выходные данные:
 ```
-18 +- 0.00005
+14 +- 0.00005
 ```
 ![](/screenshots/test_four_main.png)
 ![](/screenshots/test_four_assembler.png)
