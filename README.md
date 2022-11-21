@@ -33,7 +33,7 @@
 ```
 Ожидаемые выходные данные:
 ```
-cba
+83.5134 +- 0.00005
 ```
 Результаты тестов:
 ![](/screenshots/test_one_main.png)
@@ -46,7 +46,7 @@ cba
 ```
 Ожидаемые выходные данные:
 ```
-83.5134 +- 0.00005
+-1483.51936 +- 0.00005
 ```
 ![](/screenshots/test_two_main.png)
 ![](/screenshots/test_two_assembler.png)
